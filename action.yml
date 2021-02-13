@@ -1,0 +1,17 @@
+name: "Report workflows to slack"
+description: "Greet someone and record the time"
+inputs:
+  slack-webhook:
+    description: "The Slack webhook to post to."
+    required: true
+  workflow-results:
+    description: "Comma separated workflow results to report to the Slack webhook."
+    required: true
+    default: "failed"
+  owner-name:
+    description: "The owner of the repositories to look at the workflow results."
+    required: true
+    default: "dwardu89"
+runs:
+  using: "node12"
+  main: "index.js"
