@@ -2,8 +2,7 @@ name: Report failures to Slack
 
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron: "* * * * *"
+    - cron: "*/15 * * * *"
 
 jobs:
   write-results:
