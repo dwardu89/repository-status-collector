@@ -4,21 +4,17 @@ on: [repository_dispatch]
 
 jobs:
   write-results:
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: LS
-        run: ls
-      - name: pwd
-        run: pwd
       - name: Event Information
         run: |
           echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
-      - name: Event Information
+      - name: Store Event Info
         run: |
           mkdir -p repositories/${{ github.event.client_payload.repository }}
-          echo "${{ github.event.client_payload.result }}" > repositories/${{ github.event.client_payload.repository }}/${{ github.event.client_payload.workflow }}
+          printf "${{ github.event.client_payload.result }}" > repositories/${{ github.event.client_payload.repository }}/${{ github.event.client_payload.workflow }}
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update ${{ github.event.client_payload.repository }} with status ${{ github.event.client_payload.result }}
