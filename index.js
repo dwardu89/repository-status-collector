@@ -33,7 +33,7 @@ try {
                 const workflowStatusRaw = fs.readFileSync(repositoryPath + "/" + workflow).toString();
                 var workflowStatus = JSON.parse(workflowStatusRaw);
                 if (statusesToReport.includes(workflowStatus.workflow_result)) {
-                    slackReport += `${statusMapEmoji[workflowStatus]} \`${workflow}\` is reporting a \`${workflowStatus.workflow_result}\` status, last committed by \`${workflowStatus.github_user\`.\n`;
+                    slackReport += `${statusMapEmoji[workflowStatus]} \`${workflow}\` is reporting a \`${workflowStatus.workflow_result}\` status, last committed by \`${workflowStatus.github_user}\`.\n`;
                 }
             });
         }
