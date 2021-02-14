@@ -15,5 +15,5 @@ jobs:
         uses: ./
         with:
           slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
-          workflow-results: "success,failed"
+          workflow-results: "failed"
           owner-name: ${{ github.repository_owner }}
