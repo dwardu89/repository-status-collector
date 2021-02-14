@@ -1,5 +1,5 @@
 name: "Report workflows to slack"
-description: "Greet someone and record the time"
+description: "Report your workflow's health status to Slack"
 inputs:
   slack-webhook:
     description: "The Slack webhook to post to."
