@@ -14,7 +14,7 @@ jobs:
       - name: Store Event Info
         run: |
           mkdir -p repositories/${{ github.event.client_payload.repository }}
-          printf "{\"workflow_result\": \"${{ github.event.client_payload.result }}\", \"github_user\": \"${{ github.event.client_payload.github_user }}\" }" > repositories/${{ github.event.client_payload.repository }}/${{ github.event.client_payload.workflow }}
+          printf "{\"workflow_result\": \"${{ github.event.client_payload.result }}\", \"github_user\": \"${{ github.event.client_payload.github_user }}\"}" > repositories/${{ github.event.client_payload.repository }}/${{ github.event.client_payload.workflow }}
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update ${{ github.event.client_payload.repository }} with status ${{ github.event.client_payload.result }} by github user with status ${{ github.event.client_payload.github_user }}

@@ -31,8 +31,9 @@ try {
             const workflowMap = new Map();
             workflows.forEach(workflow => {
                 const workflowStatus = fs.readFileSync(repositoryPath + "/" + workflow).toString();
-                if (statusesToReport.includes(workflowStatus)) {
-                    slackReport += `${statusMapEmoji[workflowStatus]} \`${workflow}\` Status [${workflowStatus}]\n`;
+                var workflowStatus = JSON.parse(workflowStatus);
+                if (statusesToReport.includes(workflowStatus.workflow_result)) {
+                    slackReport += `${statusMapEmoji[workflowStatus]} \`${workflow}\` Status [${workflowStatus.workflow_result}] last committed by [${workflowStatus.github_user]\n`;
                 }
             });
         }
