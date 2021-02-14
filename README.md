@@ -41,7 +41,7 @@ Steps:
 2. In the workflow you want to report it's status on. Add the following step to the job. Replace `dwardu89/repository-status-collector` with your repository-status-collector's repository.
 
 ```yaml
-- name: Dispatch a successful event
+- name: Report the outcome of the job.
   if: ${{ always() }}
   run: |
     curl -X POST https://api.github.com/repos/dwardu89/repository-status-collector/dispatches \
